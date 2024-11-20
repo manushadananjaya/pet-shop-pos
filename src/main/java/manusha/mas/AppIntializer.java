@@ -22,7 +22,7 @@ public class AppIntializer extends Application {
         Scene scene = new Scene((javafx.scene.Parent) load);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
-        primaryStage.setTitle("MAS Initimates");
+        primaryStage.setTitle("The Paws Shop");
         primaryStage.show();
 
     }

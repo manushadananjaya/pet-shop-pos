@@ -17,13 +17,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="manusha.mas.controller.CashierDashboardController">
+<AnchorPane stylesheets="@cashierDashboardStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="manusha.mas.controller.CashierDashboardController">
 
     <!-- Main Layout -->
-    <VBox prefHeight="619.0" prefWidth="602.0" spacing="10.0">
+    <VBox prefHeight="720.0" prefWidth="718.0" spacing="10.0" style="-fx-background-color: linear-gradient(to bottom, #00008B, #FFFFFF);">
 
         <!-- Title -->
-        <Label alignment="CENTER" prefHeight="23.0" prefWidth="596.0" style="-fx-font-size: 18; -fx-font-weight: bold;" text="Cashier Dashboard" />
+        <Label alignment="CENTER" prefHeight="23.0" prefWidth="675.0" style="-fx-font-size: 18; -fx-text-fill: white; -fx-font-weight: bold;" text="Cashier Dashboard" />
 
         <!-- Tabs for Functionality -->
         <TabPane fx:id="tabPaneMain" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
@@ -52,9 +52,11 @@
                                 </items>
                             </ComboBox>
                             <TextField fx:id="txtSearchKeyword" promptText="Enter keyword..." />
-                            <Button fx:id="btnSearchSupplies" text="Search" />
+                            <Button fx:id="btnSearchSupplies" onAction="#searchPetSupplies" text="Search" />
+                     <Button fx:id="btnClear" onAction="#clearSearch" text="Clear" />
+                     <Button fx:id="btnDel" onAction="#deleteSelectedSupply" text="Delete" />
                         </HBox>
-                        <TableView fx:id="tblPetSupplies" prefHeight="457.0" prefWidth="575.0" VBox.vgrow="ALWAYS">
+                        <TableView fx:id="tblPetSupplies" prefHeight="426.0" prefWidth="605.0" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="colSupplyID" text="ID" />
                                 <TableColumn fx:id="colSupplyName" text="Name" />
@@ -109,7 +111,7 @@
                      </rowConstraints>
                         </GridPane>
 
-                        <Button fx:id="btnAddSupply" text="Add Supply" />
+                        <Button fx:id="btnAddSupply" onAction="#addPetSupply" text="Add Supply" />
                     </VBox>
                 </AnchorPane>
             </Tab>
@@ -145,8 +147,8 @@
                      </rowConstraints>
                         </GridPane>
 
-                        <Button fx:id="btnCalculateTotal" text="Calculate Total" />
-                        <Button fx:id="btnCompleteSale" text="Complete Sale" />
+                        <Button fx:id="btnCalculateTotal" onAction="#calculateTotal" text="Calculate Total" />
+                        <Button fx:id="btnCompleteSale" onAction="#completeSale" text="Complete Sale" />
                     </VBox>
                 </AnchorPane>
             </Tab>

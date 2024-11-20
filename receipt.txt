@@ -1,0 +1,7 @@
+Receipt
+=======
+Customer: dana
+Product: Bird Cage
+Quantity: 5
+Price: 120.00
+Total: 600.00

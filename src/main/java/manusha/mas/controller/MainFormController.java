@@ -97,7 +97,7 @@ public class MainFormController {
     }
 
     /**
-     * Authenticates the user against the database.
+     * Authenticates the user against the cashiers table for Cashier role.
      *
      * @param connection   The database connection.
      * @param username     The entered username.
@@ -108,17 +108,30 @@ public class MainFormController {
      */
     private boolean authenticateUser(Connection connection, String username, String password, String selectedRole)
             throws SQLException {
-        String query = "SELECT * FROM users WHERE username = ? AND password = ? AND role = ?";
+        String query;
+        if ("Manager".equals(selectedRole)) {
+            // Query for Manager from users table
+            query = "SELECT * FROM users WHERE username = ? AND password = ? AND role = ?";
+        } else if ("Cashier".equals(selectedRole)) {
+            // Query for Cashier from cashiers table
+            query = "SELECT * FROM cashiers WHERE username = ? AND password = ?";
+        } else {
+            return false; // Invalid role
+        }
+
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, username);
             statement.setString(2, password);
-            statement.setString(3, selectedRole);
+            if ("Manager".equals(selectedRole)) {
+                statement.setString(3, selectedRole); // Role is required for Manager
+            }
 
             try (ResultSet resultSet = statement.executeQuery()) {
-                return resultSet.next();
+                return resultSet.next(); // Return true if a matching record is found
             }
         }
     }
+
 
     /**
      * Loads the appropriate dashboard based on the selected role.
