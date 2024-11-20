@@ -1,0 +1,35 @@
+.topform {
+    -fx-background-color: linear-gradient(to bottom, #FAF9F6, #FFFFFF);
+    -fx-border-color: #00008B;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+    -fx-background-image: url('/images/mainform.png'); /* Replace with your image path */
+    -fx-background-size: cover; /* Adjusts the image to cover the entire background */
+    -fx-background-repeat: no-repeat; /* Ensures the image does not repeat */
+}
+
+.text-field,
+.text-area,{
+    -fx-background-color: rgba(255, 255, 255, 0.3); /* Half-transparent white background */
+    -fx-border-color: #cfd8dc; /* Subtle border color */
+    -fx-border-radius: 4px; /* Rounded borders */
+    -fx-background-radius: 4px;
+    -fx-padding: 5px; /* Padding inside the fields */
+    -fx-text-fill: black; /* Ensure text inside fields is readable */
+}
+
+#btnsignin {
+    -fx-background-color: green;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 5px;
+
+}
+
+#btnsignin:hover {
+    -fx-background-color: darkgreen;
+}
+

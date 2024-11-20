@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="815.0" prefWidth="1200.0" stylesheets="@TrainingAssistantDashboardStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="manusha.mas.controller.TrainingAssistantController">
+    <children>
+        <BorderPane layoutY="164.0" prefHeight="758.0" prefWidth="1200.0" AnchorPane.bottomAnchor="-107.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="164.0">
+            <top>
+                <!-- Header Section -->
+                <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="1200.0" />
+            </top>
+
+            <left>
+                <!-- Sidebar Navigation -->
+                <VBox prefWidth="250.0">
+                    <children>
+                        <Button fx:id="individualPerformanceBtn" maxWidth="Infinity" onAction="#individualPerformanceBtn" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT;" text="Individual Performance" />
+                        <Button fx:id="performanceFormBtn" maxWidth="Infinity" onAction="#performanceFormBtn" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT;" text="Performance Form" />
+                        <Button fx:id="attendanceBtn" maxWidth="Infinity" onAction="#attendanceBtn" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT;" text="Attendance" />
+                        <VBox VBox.vgrow="ALWAYS">
+                     <children>
+                              <Button fx:id="logOutBtn" onAction="#handleLogout" maxWidth="Infinity" style="-fx-background-color: #4caf50; -fx-text-fill: white;" text="Log Out">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children></VBox>
+                    </children>
+                </VBox>
+            </left>
+
+            <center>
+                <!-- Main Content Area with Sections -->
+                <StackPane prefHeight="728.0" prefWidth="950.0">
+                    <children>
+                        <!-- Individual Performance Section -->
+                        <AnchorPane fx:id="trainingAssistantPane" prefHeight="724.0" prefWidth="950.0">
+                            <children>
+                                <VBox spacing="20" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                    <Label text="Training Assistant" />
+            
+                                    <GridPane hgap="10" vgap="10">
+                                        <columnConstraints>
+                                            <ColumnConstraints prefWidth="150.0" />
+                                            <ColumnConstraints maxWidth="380.0" minWidth="255.0" prefWidth="290.0" />
+                                            <ColumnConstraints maxWidth="145.0" minWidth="14.0" prefWidth="70.15673828125" />
+                                            <ColumnConstraints maxWidth="342.0" minWidth="221.0" prefWidth="289.84326171875" />
+                                        </columnConstraints>
+                                        <children>
+                                            <!-- Row 1: Name and EPF -->
+                                            <Label text="Name" />
+                                            <TextField fx:id="nameFieldIndividualPerfomance" GridPane.columnIndex="1" />
+                                            <Label text="EPF" GridPane.columnIndex="2" />
+                                            <TextField fx:id="epfField" GridPane.columnIndex="3" />
+            
+                                            <!-- Row 2: ListView below Name -->
+                                            <ListView fx:id="nameSuggestionsListView" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            
+                                            <!-- Row 3: Date -->
+                                            <Label text="Date" GridPane.rowIndex="2" />
+                                            <DatePicker fx:id="datePicker" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            
+                                            <!-- Row 4: Attendance -->
+                                            <Label text="Attendance" GridPane.rowIndex="3" />
+                                            <HBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <RadioButton fx:id="attendanceYes" text="Yes" />
+                                                <RadioButton fx:id="attendanceNo" text="No" />
+                                            </HBox>
+            
+                                            <!-- Row 5: Performance with Slider -->
+                                            <Label text="Performance (%)" GridPane.rowIndex="4" />
+                                            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                <Slider fx:id="performanceSlider" blockIncrement="1" max="100" min="0" />
+                                                <Label fx:id="performanceValueLabel" text="0%" />
+                                            </VBox>
+            
+                                            <!-- Row 6: Quality with Slider -->
+                                            <Label text="Quality (%)" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                            <VBox spacing="5" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                                <Slider fx:id="qualitySlider" blockIncrement="1" max="100" min="0" />
+                                                <Label fx:id="qualityValueLabel" text="0%" />
+                                            </VBox>
+                                        </children>
+                                        <rowConstraints>
+                                            <RowConstraints maxHeight="33.0" minHeight="26.0" prefHeight="30.0" />
+                                            <RowConstraints maxHeight="26.0" minHeight="19.0" prefHeight="22.0" />
+                                            <RowConstraints />
+                                            <RowConstraints />
+                                 <RowConstraints />
+                                        </rowConstraints>
+                                    </GridPane>
+            
+                                    <!-- Day and Operations Section -->
+                                    <GridPane hgap="10" vgap="10">
+                                        <children>
+                                            <!-- Operation 1 -->
+                                            <Label text="Operation 01" GridPane.rowIndex="1" />
+                                            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <Slider fx:id="operation1Slider" blockIncrement="1" max="100" min="0" />
+                                                <Label fx:id="operation1ValueLabel" text="0%" />
+                                            </VBox>
+            
+                                            <!-- Operation 2 -->
+                                            <Label text="Operation 02" GridPane.rowIndex="2" />
+                                            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <Slider fx:id="operation2Slider" blockIncrement="1" max="100" min="0" />
+                                                <Label fx:id="operation2ValueLabel" text="0%" />
+                                            </VBox>
+            
+                                            <!-- Operation 3 -->
+                                            <Label text="Operation 03" GridPane.rowIndex="3" />
+                                            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <Slider fx:id="operation3Slider" blockIncrement="1" max="100" min="0" />
+                                                <Label fx:id="operation3ValueLabel" text="0%" />
+                                            </VBox>
+            
+                                            <!-- Operation 4 -->
+                                            <Label text="Operation 04" GridPane.rowIndex="4" />
+                                            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                <Slider fx:id="operation4Slider" blockIncrement="1" max="100" min="0" />
+                                                <Label fx:id="operation4ValueLabel" text="0%" />
+                                            </VBox>
+            
+                                            <!-- Operation 5 -->
+                                            <Label text="Operation 05" GridPane.rowIndex="5" />
+                                            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <Slider fx:id="operation5Slider" blockIncrement="1" max="100" min="0" />
+                                                <Label fx:id="operation5ValueLabel" text="0%" />
+                                            </VBox>
+            
+                                            <!-- Operation 6 -->
+                                            <Label text="Operation 06" GridPane.rowIndex="6" />
+                                            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                <Slider fx:id="operation6Slider" blockIncrement="1" max="100" min="0" />
+                                                <Label fx:id="operation6ValueLabel" text="0%" />
+                                            </VBox>
+                                        </children>
+                                        <columnConstraints>
+                                            <ColumnConstraints />
+                                            <ColumnConstraints />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints />
+                                            <RowConstraints />
+                                            <RowConstraints />
+                                            <RowConstraints />
+                                            <RowConstraints />
+                                            <RowConstraints />
+                                            <RowConstraints />
+                                        </rowConstraints>
+                                    </GridPane>
+            
+                                    <!-- Buttons -->
+                                    <HBox spacing="10">
+                                        <Button fx:id="onSaveButtonClick" onAction="#onSaveButtonClick" text="SAVE" />
+                                    </HBox>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+
+
+
+
+                        <!-- Performance Form Section -->
+                        <!-- Training Performance Pane -->
+                        <AnchorPane fx:id="trainingPerformancePane" prefHeight="702.0" prefWidth="950.0" styleClass="content-pane" visible="false">
+                            <children>
+                                <!-- Search Section -->
+                                <HBox alignment="CENTER_LEFT" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                    <TextField fx:id="searchField" prefHeight="35.0" prefWidth="300.0" promptText="Search here" styleClass="search-field" />
+                           <Button fx:id="SearchBtn" mnemonicParsing="false" onAction="#handleSearchEPF" prefHeight="34.0" prefWidth="76.0" text="Search" />
+                                </HBox>
+
+                                <!-- Form and Skill Matrix Section -->
+                                <GridPane hgap="20" vgap="10" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="80.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints percentWidth="50" />
+                                        <ColumnConstraints percentWidth="50" />
+                                    </columnConstraints>
+
+                                    <!-- Left Side - Form Fields -->
+                                    <VBox spacing="10" styleClass="form-container" GridPane.columnIndex="0">
+                                        <GridPane hgap="10" vgap="10">
+                                            <Label text="Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                            <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                            <Label text="Designation" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                            <TextField fx:id="designationField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                            <Label text="Gender" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                            <TextField fx:id="genderField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                                            <Label text="Training S/D" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                            <TextField fx:id="trainingField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                            <columnConstraints>
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                            </rowConstraints>
+                                        </GridPane>
+                                    </VBox>
+
+                                    <!-- Right Side - Skill Matrix -->
+                                    <VBox spacing="10" styleClass="skill-matrix" GridPane.columnIndex="1">
+                                        <Label styleClass="section-header" text="Skill Matrix" />
+                                        <GridPane hgap="10" vgap="5">
+
+
+                                            <Label text="Operation 01" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                            <ProgressBar fx:id="operation1Bar" prefWidth="200" progress="0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                            <Label fx:id="operation1Label" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+
+
+
+                                            <Label text="Operation 02" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                            <ProgressBar fx:id="operation2Bar" prefWidth="200" progress="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                            <Label fx:id="operation2Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+
+
+                                            <Label text="Operation 03" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                            <ProgressBar fx:id="operation3Bar" prefWidth="200" progress="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                            <Label fx:id="operation3Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+
+
+                                            <Label text="Operation 04" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                            <ProgressBar fx:id="operation4Bar" prefWidth="200" progress="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                            <Label fx:id="operation4Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+
+
+                                            <Label text="Operation 05" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                            <ProgressBar fx:id="operation5Bar" prefWidth="200" progress="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                            <Label fx:id="operation5Label" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+
+
+                                            <Label text="Operation 06" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                                            <ProgressBar fx:id="operation6Bar" prefWidth="200" progress="0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                            <Label fx:id="operation6Label" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+
+                                            <columnConstraints>
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                                <ColumnConstraints />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                            </rowConstraints>
+
+                                            <!-- Add more operations similarly -->
+                                        </GridPane>
+                                    </VBox>
+                                    <rowConstraints>
+                                        <RowConstraints />
+                                    </rowConstraints>
+                                </GridPane>
+
+                                <!-- Charts Section -->
+                                <HBox layoutX="10.0" layoutY="301.0" prefWidth="910.0" spacing="20" AnchorPane.bottomAnchor="119.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="301.0">
+                                    <!-- Performance Tracking Chart -->
+                                    <VBox spacing="10" HBox.hgrow="ALWAYS">
+                                        <Label styleClass="section-header" text="Performance Tracking" />
+                                        <BarChart fx:id="performanceChart">
+                                            <xAxis>
+                                                <CategoryAxis label="Operations" />
+                                            </xAxis>
+                                            <yAxis>
+                                                <NumberAxis label="Time" />
+                                            </yAxis>
+                                        </BarChart>
+                                    </VBox>
+
+                                    <!-- Daily Tracking Charts -->
+                                    <VBox spacing="10" HBox.hgrow="ALWAYS">
+                                        <Label styleClass="section-header" text="Daily Tracking" />
+                                        <GridPane vgap="10">
+                                            <BarChart fx:id="performanceDailyChart" prefHeight="200" title="Performance" GridPane.rowIndex="0">
+                                                <xAxis>
+                                                    <CategoryAxis />
+                                                </xAxis>
+                                                <yAxis>
+                                                    <NumberAxis />
+                                                </yAxis>
+                                            </BarChart>
+
+                                            <BarChart fx:id="qualityChart" prefHeight="200" title="Quality" GridPane.rowIndex="1">
+                                                <xAxis>
+                                                    <CategoryAxis />
+                                                </xAxis>
+                                                <yAxis>
+                                                    <NumberAxis />
+                                                </yAxis>
+                                            </BarChart>
+                                            <columnConstraints>
+                                                <ColumnConstraints />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints />
+                                                <RowConstraints />
+                                            </rowConstraints>
+                                        </GridPane>
+                                    </VBox>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                        <!-- Attendance Section -->
+                        <AnchorPane fx:id="attendancePane" visible="false">
+                            <children>
+                                <VBox spacing="20" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                    <Label style="-fx-font-size: 20px;" text="Attendance for the Month" />
+
+                                    <!-- ComboBox for selecting the month -->
+                                    <HBox spacing="10">
+                                        <Label text="Select Month:" />
+                                        <ComboBox fx:id="monthComboBox" promptText="Choose month" />
+                                    </HBox>
+
+                                    <!-- TableView to display attendance -->
+                                    <TableView fx:id="attendanceTable" prefHeight="400" prefWidth="1200">
+                                        <columns>
+                                            <TableColumn fx:id="nameColumn" text="Name" />
+                                            <TableColumn fx:id="epfColumn" text="EPF Number" />
+                                            <!-- Columns for each day will be added dynamically -->
+                                            <TableColumn fx:id="attendancePercentColumn" text="Attendance %" />
+                                        </columns>
+                                    </TableView>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+
+                    </children>
+                </StackPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

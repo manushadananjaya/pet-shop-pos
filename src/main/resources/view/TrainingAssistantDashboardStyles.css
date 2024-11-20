@@ -1,0 +1,320 @@
+/* General styling */
+.root {
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-background-image: url("/images/taMain.png"); /* Replace with the path to your image */
+    -fx-background-size: stretch; /* Stretch the image to fit the window size */
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+/* Top bar styling */
+.top-bar {
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+}
+
+/* Sidebar styling */
+.sidebar {
+    -fx-background-color: transparent;
+    -fx-padding: 20px;
+    -fx-spacing: 10px;
+}
+
+.sidebar button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+}
+
+.sidebar button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.2); /* Slight hover effect */
+}
+
+#logOutBtn {
+    -fx-background-color: rgba(76, 175, 80, 0.8);
+    -fx-text-fill: white;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.label {
+    -fx-text-fill: white; /* Applies white text color to all labels */
+}
+
+.log-out-button:hover {
+    -fx-background-color: rgba(56, 142, 60, 0.8);
+}
+
+/* Main content styling */
+.main-content {
+    -fx-padding: 20px;
+}
+
+.main-content .grid-pane {
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+}
+
+.main-content label {
+    -fx-font-weight: bold;
+    -fx-text-fill: white; /* Change label text color to white */
+}
+
+.main-content text-field,
+.main-content date-picker {
+    -fx-background-color: rgba(255, 255, 255, 0.7);
+    -fx-border-color: #cfd8dc;
+    -fx-border-radius: 4px;
+    -fx-padding: 5px;
+}
+
+.main-content .button {
+    -fx-min-width: 100px;
+    -fx-background-color: rgba(30, 136, 229, 0.8);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.main-content .button:hover {
+    -fx-background-color: rgba(21, 101, 192, 0.8);
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: lightslategray; /* Set header text color to black */
+    /* Adjust font size */
+}
+
+.custom-table .table-row-cell:hover {
+    -fx-background-color: rgba(245, 245, 245, 0.5);
+}
+
+/* Training Performance Pane */
+.training-performance-pane {
+    -fx-padding: 20px;
+}
+
+.skill-matrix .progress-bar {
+    -fx-accent: rgba(76, 175, 80, 0.8);
+}
+
+.skill-matrix label {
+    -fx-font-weight: bold;
+    -fx-text-fill: white; /* Change skill-matrix label text to white */
+}
+
+.search-field {
+    -fx-border-color: #cfd8dc;
+    -fx-padding: 5px;
+}
+
+.search-field:focused {
+    -fx-border-color: rgba(30, 136, 229, 0.8);
+}
+
+/* Chart styling */
+.bar-chart {
+    -fx-padding: 10px;
+}
+
+
+/* Text input fields (TextField, TextArea, and DatePicker) */
+.text-field,
+.text-area,
+.date-picker {
+    -fx-background-color: rgba(255, 255, 255, 0.5); /* Half-transparent white background */
+    -fx-border-color: #cfd8dc; /* Subtle border color */
+    -fx-border-radius: 4px; /* Rounded borders */
+    -fx-background-radius: 4px;
+    -fx-padding: 5px; /* Padding inside the fields */
+    -fx-text-fill: black; /* Ensure text inside fields is readable */
+}
+
+.text-field:focused,
+.text-area:focused,
+.date-picker:focused {
+    -fx-border-color: rgba(30, 136, 229, 0.8); /* Highlight border when focused */
+}
+
+/* Table Style */
+.table-view {
+    -fx-background-color: transparent; /* Set table background color */
+    -fx-border-color: #dcdcdc; /* Border color for the table */
+    -fx-border-width: 1px; /* Thin border around table */
+}
+
+/* Table Cells Style */
+.table-cell {
+    -fx-padding: 5px 10px; /* Add padding inside table cells */
+    -fx-font-size: 12px; /* Adjust font size inside table cells */
+}
+
+
+/* TableView styling */
+.custom-table {
+    -fx-background-color: rgba(255, 255, 255, 0.5); /* Half-transparent white */
+    -fx-border-color: transparent; /* Remove visible border */
+}
+
+.custom-table .table-row-cell {
+    -fx-background-color: transparent; /* Keep rows transparent by default */
+}
+
+.custom-table .table-row-cell:hover {
+    -fx-background-color: rgba(245, 245, 245, 0.5); /* Slight highlight on hover */
+}
+
+.custom-table .table-column {
+    -fx-font-weight: bold;
+    -fx-text-fill: white; /* Change table column text to white */
+}
+
+/* Chart styling */
+.bar-chart, .line-chart, .pie-chart {
+    -fx-background-color: rgba(255, 255, 255, 0.5); /* Half-transparent white background */
+    -fx-border-color: transparent; /* Optional: Remove border */
+    -fx-padding: 10px; /* Add padding around the chart */
+}
+
+.bar-chart .chart-legend,
+.line-chart .chart-legend,
+.pie-chart .chart-legend {
+    -fx-background-color: transparent; /* Transparent legend background */
+    -fx-text-fill: white; /* Legend text color to white */
+}
+
+.bar-chart .chart-title,
+.line-chart .chart-title,
+.pie-chart .chart-title {
+    -fx-text-fill: white; /* Chart titles in white */
+}
+
+.bar-chart .chart-plot-background,
+.line-chart .chart-plot-background,
+.pie-chart .chart-plot-background  {
+    -fx-background-color: rgba(255, 255, 255, 0.3); /* Slightly transparent plot area */
+}
+
+#requestedDetailsTable {
+    -fx-background-color: rgba(255, 255, 255, 0.3);; /* Table background */
+    -fx-border-color: #dcdcdc;   /* Border color */
+    -fx-border-width: 1px;       /* Border width */
+}
+
+
+/* General Button Style */
+.button {
+    -fx-min-width: 100px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 5px;
+
+}
+
+/* Save Button (Forest Green) */
+#saveBtn {
+    -fx-background-color: forestgreen;
+}
+
+#saveBtn:hover {
+    -fx-background-color: darkgreen;
+}
+
+/* Edit Button (Normal Color) */
+#editBtn {
+    -fx-background-color: forestgreen; /* A subtle green */
+}
+
+#editBtn:hover {
+    -fx-background-color: darkgreen;
+}
+
+/* Delete Button (Red) */
+#deleteBtn {
+    -fx-background-color: red;
+}
+
+#deleteBtn:hover {
+    -fx-background-color: darkred;
+}
+
+/* Search Button (Forest Green) */
+#SearchBtn {
+    -fx-background-color: forestgreen;
+    -fx-pref-height: 34px;
+    -fx-pref-width: 76px;
+}
+
+#SearchBtn:hover {
+    -fx-background-color: darkgreen;
+}
+
+#onSaveButtonClick {
+    -fx-background-color: blue;
+}
+
+#onSaveButtonClick:hover {
+    -fx-background-color: darkblue;
+}
+
+#monthComboBox{
+    -fx-text-fill: white;
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+}
+
+#datePicker{
+    -fx-text-fill: black;
+}
+
+#datePicker .label {
+    -fx-text-fill: black; /* Set label text color to black */
+
+}
+
+#operationBtn {
+    -fx-background-color: darkblue;
+}
+#operationBtn2 {
+    -fx-background-color: darkblue;
+}
+
+#operationBtn3 {
+    -fx-background-color: darkblue;
+}
+
+#operationBtn4 {
+    -fx-background-color: darkblue;
+}
+
+#operationBtn5 {
+    -fx-background-color: darkblue;
+}
+
+#operationBtn6 {
+    -fx-background-color: darkblue;
+}
+
+
+
+
+
+
+/* Additional Hover Effects */
+.button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0.5, 0, 0);
+}
+
+#attendanceYes {
+    -fx-text-fill: white;
+}
+
+#attendanceNo {
+    -fx-text-fill: white;
+}
+
+
