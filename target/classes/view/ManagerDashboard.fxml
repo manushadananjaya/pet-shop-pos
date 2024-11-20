@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="manusha.mas.controller.ManagerDashboardController">
+
+    <!-- Title Section -->
+    <Label layoutX="200.0" layoutY="20.0" prefHeight="23.0" prefWidth="362.0" style="-fx-font-size: 18; -fx-font-weight: bold;" text="The Paws Shop -  Manager Dashboard" />
+
+    <!-- Tabs for Functionality -->
+    <TabPane layoutX="50.0" layoutY="60.0" prefHeight="500.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE">
+
+        <!-- Cashier Functionalities -->
+        <Tab text="Cashier Functions">
+            <AnchorPane prefHeight="517.0" prefWidth="700.0">
+
+                <!-- Pet Supplies Table -->
+                <Label layoutX="50.0" layoutY="10.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Pet Supplies Details" />
+
+                <TableView fx:id="tblPetSupplies" layoutX="50.0" layoutY="40.0" prefHeight="200.0" prefWidth="600.0">
+                    <columns>
+                        <TableColumn fx:id="colSupplyID" prefWidth="50.0" text="ID" />
+                        <TableColumn fx:id="colSupplyName" prefWidth="150.0" text="Name" />
+                        <TableColumn fx:id="colSupplyCategory" prefWidth="100.0" text="Category" />
+                        <TableColumn fx:id="colSupplyPrice" prefWidth="100.0" text="Price" />
+                        <TableColumn fx:id="colSupplyStock" prefWidth="100.0" text="Stock" />
+                    </columns>
+                </TableView>
+
+                <!-- Search Functionality -->
+                <HBox spacing="10.0" />
+                <!-- Add New Pet Supplies Form -->
+                <Label layoutX="50.0" layoutY="300.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Add New Pet Supplies" />
+
+                <GridPane hgap="10" layoutX="50.0" layoutY="330.0" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints prefWidth="100" />
+                        <ColumnConstraints prefWidth="200" />
+                    </columnConstraints>
+
+                    <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="txtSupplyName" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <Label text="Category:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <ComboBox fx:id="cmbSupplyCategory" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Pet Toys" />
+                                <String fx:value="Harnesses" />
+                                <String fx:value="Cages" />
+                                <String fx:value="Grooming Products" />
+                                <String fx:value="Collars" />
+                                <String fx:value="Food" />
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+
+                    <Label text="Price:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="txtSupplyPrice" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <Label text="Stock:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <TextField fx:id="txtSupplyStock" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+                </GridPane>
+                 <Label layoutX="50.0" layoutY="260.0" text="Search by:" />
+                 <ComboBox fx:id="cmbSearchCategory" layoutX="116.0" layoutY="256.0" prefWidth="150.0">
+                     <items>
+                         <FXCollections fx:factory="observableArrayList">
+                             <String fx:value="Pet Toys" />
+                             <String fx:value="Harnesses" />
+                             <String fx:value="Cages" />
+                             <String fx:value="Grooming Products" />
+                             <String fx:value="Collars" />
+                             <String fx:value="Food" />
+                         </FXCollections>
+                     </items>
+                 </ComboBox>
+                 <Label layoutX="338.0" layoutY="261.0" text="Keyword:" />
+                 <TextField fx:id="txtSearchKeyword" layoutX="441.0" layoutY="259.0" prefWidth="200.0" promptText="Enter keyword..." />
+                 <Button fx:id="btnSearchSupplies" layoutX="586.0" layoutY="293.0" text="Search" />
+         
+                                     <Button fx:id="btnAddSupply" layoutX="369.0" layoutY="441.0" text="Add" />
+
+            </AnchorPane>
+        </Tab>
+
+        <!-- Manager Functionalities -->
+        <Tab text="Manager Functions">
+            <AnchorPane>
+
+                <!-- New Cashier Details -->
+                <GridPane hgap="10" layoutX="50.0" layoutY="60.0" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints prefWidth="120" />
+                        <ColumnConstraints prefWidth="200" />
+                    </columnConstraints>
+
+                    <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="txtUsername" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <PasswordField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="txtName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <TextField fx:id="txtEmail" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                    <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <TextField fx:id="txtAddress" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                    <Label text="Phone No:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                    <TextField fx:id="txtPhone" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                    <Label text="Age:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                    <TextField fx:id="txtAge" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                    <Label text="Gender:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                    <ComboBox fx:id="cmbGender" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Male" />
+                                <String fx:value="Female" />
+                                <String fx:value="Other" />
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+                </GridPane>
+
+                <Button fx:id="btnSaveCashier" layoutX="410.0" layoutY="312.0" text="Save" />
+
+                <!-- Table to display cashiers -->
+                <TableView fx:id="tblCashiers" layoutX="50.0" layoutY="352.0" prefHeight="122.0" prefWidth="600.0">
+                    <columns>
+                        <TableColumn fx:id="colCashierID" prefWidth="50.0" text="ID" />
+                        <TableColumn fx:id="colCashierUsername" prefWidth="100.0" text="Username" />
+                        <TableColumn fx:id="colCashierName" prefWidth="100.0" text="Name" />
+                        <TableColumn fx:id="colCashierEmail" prefWidth="150.0" text="Email" />
+                        <TableColumn fx:id="colCashierPhone" prefWidth="100.0" text="Phone No" />
+                        <TableColumn fx:id="colCreatedDate" prefWidth="100.0" text="Created Date" />
+                    </columns>
+                </TableView>
+            <Label layoutX="53.0" layoutY="24.0" prefHeight="22.0" prefWidth="197.0" text="Create New Cashier Account" />
+            </AnchorPane>
+        </Tab>
+    </TabPane>
+
+</AnchorPane>

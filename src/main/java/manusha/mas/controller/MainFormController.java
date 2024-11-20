@@ -43,10 +43,8 @@ public class MainFormController {
     }
 
     // FXML file paths for roles
-    private static final String ADMIN_DASHBOARD = "/view/AdminDashboard.fxml";
-    private static final String IE_DASHBOARD = "/view/IEDashboard.fxml";
-    private static final String TRAINING_ASSISTANT_DASHBOARD = "/view/TrainingAssistant.fxml";
-    private static final String TRAINING_MANAGER_DASHBOARD = "/view/TrainingManagerDashboard.fxml";
+    private static final String MANAGER_DASHBOARD = "/view/ManagerDashboard.fxml";
+    private static final String CASHIER_DASHBOARD = "/view/CashierDashboard.fxml";
 
     @FXML
     private void initialize() {
@@ -130,10 +128,8 @@ public class MainFormController {
      */
     private void loadDashboard(String role) throws IOException {
         String fxmlFile = switch (role) {
-            case "Admin" -> ADMIN_DASHBOARD;
-            case "IE" -> IE_DASHBOARD;
-            case "Training Assistant" -> TRAINING_ASSISTANT_DASHBOARD;
-            case "Training Manager" -> TRAINING_MANAGER_DASHBOARD;
+            case "Manager" -> MANAGER_DASHBOARD;
+            case "Cashier" -> CASHIER_DASHBOARD;
             default -> throw new IllegalStateException("Unexpected role: " + role);
         };
 
